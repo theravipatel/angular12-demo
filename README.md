@@ -1,5 +1,9 @@
 ```
-1) check angular CLI version 
+Website:  https://angular.io/
+Docs:     https://angular.io/docs
+```
+```
+1) check angular CLI version
 => ng version
 ```
 
