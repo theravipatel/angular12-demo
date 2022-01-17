@@ -1,0 +1,403 @@
+<app-header></app-header>
+<h1>Hello {{title}}</h1>
+<app-user-list></app-user-list>
+<app-student-list></app-student-list>
+<app-country-list></app-country-list>
+<app-emp-list></app-emp-list>
+<app-login></app-login>
+
+<button (click)="getData('Hello')">Click Me for display value in alert</button>
+<br />
+<br />
+<input type="text" #box (keyup)="getData(box.value)" placeholder="Key Up" />
+<br />
+<br />
+<input type="text" #box1 (blur)="getData(box1.value)" placeholder="Blur" />
+
+<br />
+<br />
+<input type="text" #box3 placeholder="Enter User Name" name="username" />
+<button (click)="getData2(box3.value)">Click Me Display vlaue in P tag</button>
+<p>User Name is : {{dis_value}}</p>
+
+<br />
+================================
+<br />
+<h3>Counter Example:</h3>
+
+<button (click)="counter('minus')">--</button>
+<p>{{count}}</p>
+<button (click)="counter('plus')">++</button>
+
+<br />
+================================
+<br />
+<h3>Property Binding Example:</h3>
+<br />
+Interpolation :
+<input type="text" name="emp_name" value="{{emp_name}}" disabled="{{is_disabled}}" />
+
+
+<br />
+================================
+<br />
+Property Binding :
+<input type="text" name="emp_name" [value]=emp_name [disabled]=is_disabled />
+
+
+<br />
+================================
+<br />
+<h3>If Else Condition Example 1:</h3>
+
+<h3 *ngIf="show_variable else elseblock1">If condition true</h3>
+<ng-template #elseblock1>
+  <p>Else Block</p>
+</ng-template>
+<br />
+<br />
+<h3>If Else Condition Example 2:</h3>
+
+<h3 *ngIf="show_variable2=='Yes'; then ifblock else elseblock"></h3>
+<ng-template #ifblock>
+  <p>If Block</p>
+</ng-template>
+<ng-template #elseblock>
+  <p>Else Block</p>
+</ng-template>
+
+<h3>If ElseIf Condition Example:</h3>
+
+<ng-template [ngIf]="color==='red'">
+  <p style="color:red">Red Color</p>
+</ng-template>
+<ng-template [ngIf]="color==='blue'">
+  <p style="color:blue">Blue Color</p>
+</ng-template>
+<ng-template [ngIf]="color==='green'">
+  <p style="color:green">Green Color</p>
+</ng-template>
+
+<br />
+================================
+<br />
+<h3>Switch Case Example:</h3>
+<div [ngSwitch]="switch_color">
+  <h4 *ngSwitchCase="'red'" style="color:red">Red Color</h4>
+  <h4 *ngSwitchCase="'green'" style="color: green">Green Color</h4>
+  <h4 *ngSwitchCase="'blue'" style="color:blue">Blue Color</h4>
+  <h4 *ngSwitchDefault>Unknown Color</h4>
+</div>
+
+<br />
+================================
+<br />
+<h3>For Loop (1d Array) Example:</h3>
+
+<p *ngFor="let item of one_array">{{item}}</p>
+
+<br />
+================================
+<br />
+<h3>For Loop (Array with Key=>Value) Example:</h3>
+
+<p *ngFor="let item of multi_obj_array">{{item.name}} -- {{item.phone}}</p>
+
+<br />
+================================
+<br />
+<h3>Nested For Loop Example:</h3>
+
+<ul *ngFor="let user of user_info_arr">
+  <li>Name: {{user.name}}</li>
+  <li>
+    Social Accounts:
+    <ul *ngFor="let account of user.socialAccounts">
+      <li>
+        {{account}}
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<br />
+================================
+<br />
+<h3>Style Binding Example:</h3>
+
+<h3 [style.color]="style_color" [style.backgroundColor]="style_bgColor">Hello World!</h3>
+
+<button (click)="updateColor('orange_pink');">Make Orange/Pink</button> | <button (click)="updateColor('yellow_black');">Make Yellow/Black</button>
+
+<br />
+================================
+<br />
+<h3>Basic Form Example:</h3>
+
+<form #form_id="ngForm" (ngSubmit)="getFormData(form_id.value)">
+  <input type="text" ngModel name="u_name" placeholder="User Name" />
+  <br /><br />
+  <input type="text" ngModel name="u_email" placeholder="User Email" />
+  <br /><br />
+  <input type="submit" name="u_submit" value="Register" />
+</form>
+
+<br />
+
+<ul>
+  <li>{{userData.u_name}}</li>
+  <li>{{userData.u_email}}</li>
+</ul>
+
+<br />
+================================
+<br />
+<h3>Toggle Example:</h3>
+
+<button (click)="toggle();">Toggle</button>
+<h2 *ngIf="toggle_show">Toggle Me!</h2>
+<br />
+
+<br />
+================================
+<br />
+<h3>Material UI Example: ng add @angular/material</h3>
+<mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+<br />
+<br />
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+
+<br />
+================================
+<br />
+<h3>Bootstrap Example: ng add @ng-bootstrap/ng-bootstrap</h3>
+<div class="row">
+  <div class="col-md-3">
+    <p class="mt-5">
+      <ngb-alert [dismissible]="true">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </ngb-alert>
+    </p>
+  </div>
+  <div class="col-md-3">
+    <p class="mt-2">
+      <ngb-alert [dismissible]="true">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+      </ngb-alert>
+    </p>
+  </div>
+</div>
+
+<br />
+================================
+<br />
+<h3>To Do List Example:</h3>
+
+<br />
+<input type="text" placeholder="Enter Task Name" #task />
+<br />
+<br />
+<button class="btn btn-sm btn-primary" (click)="addTask(task.value);">Add Task</button>
+<br />
+<br />
+
+<ul *ngFor="let item of task_list">
+  <li>{{item.name}} <button class="btn btn-sm btn-danger" (click)="removeTask(item.id);">Remove</button></li>
+</ul>
+
+<br />
+================================
+<br />
+<h3>Pass Data From Parent to Child Example:</h3>
+<h4>Parent - {{parent_data}}</h4>
+<app-child [data]="parent_data"></app-child>
+<br />
+<button (click)="updateChild();">Update Child Component</button>
+
+<br />
+================================
+<br />
+<h3>Reusable Component - Pass Data From Parent to Child Example:</h3>
+<app-user-details [item]="userDetails"></app-user-details>
+
+<br />
+================================
+<br />
+<h3>Pass Data From Child to Parent Example:</h3>
+<p>{{parent_data2}}</p>
+<app-child2 (updateParentDataEvent)="updateParentData($event)"></app-child2>
+
+<br />
+================================
+<br />
+<h3>Two Way Binding Example: to use [(ngModel)], must add-> import NgForm  from '@angular/forms';</h3>
+
+<input type="text" [(ngModel)]="two_way_data" />
+<h4>{{two_way_data}}</h4>
+
+<br />
+================================
+<br />
+<h3>Basic Pipes</h3>
+<br />
+<br />
+<h4>Normal no pipe : {{data_pipe}}</h4>
+<h4>'uppercase' : {{data_pipe | uppercase}}</h4>
+<h4>'lowercase' : {{data_pipe | lowercase}}</h4>
+<h4>Normal Date : {{today_pipe}}</h4>
+<h4>Normal Date : {{today_pipe}}</h4>
+<h4>'date' : {{today_pipe | date}}</h4>
+<h4>'date:fullDate' : {{today_pipe | date:'fullDate'}}</h4>
+
+
+<br />
+================================
+<br />
+<h3>Advance Pipes</h3>
+<br />
+<br />
+<h4>Normal String : {{data_pipe_adv}}</h4>
+<h4>'Slice' : {{data_pipe_adv | slice : 3}}</h4>
+<h4>'Slice' : {{data_pipe_adv | slice : 3 : 6}}</h4>
+<h4>'json' : {{data_pipe_json | json}}</h4>
+<h4>'json | uppercase' : {{data_pipe_json | json | uppercase}}</h4>
+<h4>'number' : {{2000.3000 | number : '2.2-3'}}</h4>
+
+<br />
+================================
+<br />
+<h3>Custom Pipes</h3>
+<br />
+<br />
+<h4>Normal String : {{data_pipe_custom}}</h4>
+<h4>usdInr of 20 : {{20 | usdInr : 70}}</h4>
+
+
+<br />
+================================
+<br />
+<h3>Template Driven Form</h3>
+<br />
+<br />
+<form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm.value);">
+  <input type="text" name="lg_email" placeholder="Enter Email" ngModel />
+  <br />
+  <br />
+  <input type="text" name="lg_password" placeholder="Enter Password" ngModel />
+  <br />
+  <br />
+  <button>Login</button>
+</form>
+
+<br />
+================================
+<br />
+<h3>Template Driven Form Validation</h3>
+<br />
+<br />
+<form #loginForm2="ngForm" (ngSubmit)="userLogin2(loginForm2.value);">
+  <input type="text" required email #lg2_email="ngModel" name="lg2_email" placeholder="Enter Email" ngModel />
+  <br />
+  <span class="text-danger" *ngIf="lg2_email.invalid && lg2_email.touched">Please enter valid input.</span>
+  <br />
+  <input type="text" minlength="3" required pattern="[a-zA-Z]+$" #lg2_password="ngModel" name="lg2_password" placeholder="Enter Password" ngModel />
+  <br />
+  <span class="text-danger" *ngIf="lg2_password.invalid && lg2_password.touched">Please enter valid input.</span>
+  <br />
+  <button [disabled]="loginForm2.invalid">Login</button>
+</form>
+
+<br />
+================================
+<br />
+<h3>Reactive Form</h3>
+<br />
+<br />
+<form [formGroup]="loginFormReactive" (ngSubmit)="userLoginReactive();">
+  <input type="text" name="lgr_email" placeholder="Enter Email" formControlName="lgr_email" />
+  <br />
+  <br />
+  <input type="text" name="lgr_password" placeholder="Enter Password" formControlName="lgr_password" />
+  <br />
+  <br />
+  <button>Login</button>
+</form>
+
+<br />
+================================
+<br />
+<h3>Reactive Form Validation</h3>
+<br />
+<br />
+<form [formGroup]="loginFormReactive2" (ngSubmit)="userLoginReactive2();">
+  <input type="text" name="lgr_email2" placeholder="Enter Email" formControlName="lgr_email2" />
+  <br />
+  <span class="text-danger" *ngIf="lgr_email2 && lgr_email2.invalid && lgr_email2.touched">This field is required with valid input.</span>
+  <br />
+  <input type="text" name="lgr_password2" placeholder="Enter Password" formControlName="lgr_password2" />
+  <br />
+  <span class="text-danger" *ngIf="lgr_password2 && lgr_password2.invalid && lgr_password2.touched">This field is required with valid input.</span>
+  <br />
+  <button [disabled]="loginFormReactive2.invalid">Login</button>
+</form>
+
+<br />
+================================
+<br />
+<h3>Custom Directive</h3>
+<br />
+
+<h4 appRedEl>Hello World!</h4>
+
+<br />
+================================
+<br />
+<h3>Services</h3>
+<br />
+
+<ul *ngFor="let user of user_service_data">
+  <li>
+    {{user.name}} : {{user.email}}
+  </li>
+</ul>
+
+<br />
+================================
+<br />
+<h3>Get Data from API Call using Services</h3>
+<br />
+
+<ul *ngFor="let user_detail of user_detail_service.data">
+  <li><img src={{user_detail.avatar}} width="25px" /> {{user_detail.first_name}} {{user_detail.last_name}} - {{user_detail.email}}</li>
+</ul>
+
+<br />
+================================
+<br />
+<h3>Post Data using Services</h3>
+<br />
+
+<form #regForm="ngForm" (ngSubmit)="regUser(regForm.value)">
+  <input name="name" placeholder="Name" ngModel />
+  <br>
+  <input name="email" placeholder="Email" ngModel />
+  <br>
+  <button type="submit">Submit</button>
+</form>
+
+<br />
+<br />
+<br />
+<br />
+<app-footer></app-footer>
