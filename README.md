@@ -159,6 +159,7 @@ Docs:     https://angular.io/docs
 ### 24) Basic type of TypeScript
 - number, string, boolean, any, define two types
 - Example:
+  ```
     getData(item:number | boolean){
         if(typeof item==='number'){
 
@@ -166,15 +167,22 @@ Docs:     https://angular.io/docs
           
         }
     }
+  ```
   
 - Define type of array:
+  ```
     getData(item:{name:string,phone:number}){
 
     }
   item:string[] = ['Hello',"hi"];
+  ```
+  
 - Deifne Object: 
+  
+  ```
     data:{name:string,phone:number} = {name:'',phone:''};
-
+  ```
+  
 ### 25) Basic of Pipes
 - Pipe used in HTML file only
  	  data_pipe = "Hello World!";
@@ -257,20 +265,21 @@ Docs:     https://angular.io/docs
 
 ### 31) Reactive Form Validation
 - First import reactive module in module.ts
-    import { ReactiveFormsModule } from '@angular/forms';
+    ```import { ReactiveFormsModule } from '@angular/forms';```
 
 - Second import FormGroup and FormControl in component.ts
-    import { FormGroup, FormControl } from '@angular/forms';
+    ```import { FormGroup, FormControl } from '@angular/forms';```
 
 - Third import Validators in component.ts
-    import { Validators } from '@angular/forms';
+   ``` import { Validators } from '@angular/forms';```
 
-- 2nd argument of FormControl is for validators:
+- 2nd argument of FormControl is for validators
+    ```
     loginFormReactive2 = new FormGroup({
       lgr_email2: new FormControl('', [Validators.required, Validators.email]),
       lgr_password2: new FormControl('', [Validators.required, Validators.minLength(5)])
     });
-
+    ```
 - Fourth define 'getter', getter name will be used in *ngIf in HTML form
   ```
     get lgr_email2() {
