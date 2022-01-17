@@ -1,39 +1,60 @@
+```
 1) check angular CLI version 
 => ng version
+```
 
+```
 2) check node version
 => node -v
+```
 
+```
 3) Installing Angular CLI (globally)
 => npm install -g @angular/cli
+```
 
+```
 4) Create new project
 => ng new blog
 => routting Yes/No and CSS/Less/SASS select
+```
 
+```
 5) Run project - Bundling
 => ng serve
+```
 
+```
 6) Important commands
 => ng generate component user-list
 => ng generate module user-list
+```
 
+```
 7) After module creation you have to register it in app.module.ts, and than you have to exports module's component in newly created module.ts file
+```
 
+```
 8) Inline Style and Template
 => ng g c user-list --inline-template (no html file will generate)
 => ng g c user-list --inline-css (no css file will generate)
 => ng g c user-list --inline-template --inline-css (no html & css file will generate, code will be in .ts file)
+```
 
+```
 9) in component.ts file, AppComponent Class define class
 => getName(name:string) {
 	}
 => tsconfig.json -> strict:true so data type is must, if false than no need to give data type
+```
 
+```
 10) Property Binding: It will work with boolean too.
 => Interpolation : <input type="text" name="emp_name" value="{{emp_name}}" disabled="{{is_disabled}}" />
 => Property Binding :<input type="text" name="emp_name" [value]=emp_name [disabled]=is_disabled />
+```
 
+```
 11) If Else condition:
 => <h3 *ngIf="show_variable2=='Yes'; then ifblock else elseblock"></h3>
 <ng-template #ifblock>
@@ -42,7 +63,9 @@
 <ng-template #elseblock>
   <p>Else Block</p>
 </ng-template>
+```
 
+```
 12) If else if condition:
 <ng-template [ngIf]="color==='red'">
   <p style="color:red">Red Color</p>
@@ -53,11 +76,15 @@
 <ng-template [ngIf]="color==='green'">
   <p style="color:green">Green Color</p>
 </ng-template>
+```
 
+```
 13) Change Base url when build for deployment
 => ng build --baseHref=http://applisoft.in/hms_bvh/demo/ng/
 ng build --configuration=production --baseHref=http://applisoft.in/hms_bvh/demo/ng/
+```
 
+```
 14) Switch Case:
 <div [ngSwitch]="switch_color">
   <h4 *ngSwitchCase="'red'" style="color:red">Red Color</h4>
@@ -65,12 +92,16 @@ ng build --configuration=production --baseHref=http://applisoft.in/hms_bvh/demo/
   <h4 *ngSwitchCase="'blue'" style="color:blue">Blue Color</h4>
   <h4 *ngSwitchDefault>Unknown Color</h4>
 </div>
+```
 
+```
 15) For Loop 1D Array:
 one_array = ['John', 'Donald', 'Rocky'];
 
 <p *ngFor="let item of one_array">{{item}}</p>
+```
 
+```
 16) For Loop Array with Key=> Value:
  multi_obj_array = [
     { name:'Emma',phone:'98765443551'},
@@ -79,10 +110,14 @@ one_array = ['John', 'Donald', 'Rocky'];
   ];
 
 <p *ngFor="let item of multi_obj_array">{{item.name}} -- {{item.phone}}</p>
+```
 
+```
 17) Style Binding:
 <h3 [style.color]="style_color" [style.backgroundColor]="style_bgColor">Hello World!</h3>
+```
 
+```
 18) Basic Form:
 => import form module and register it
 	=> import { FormsModule } from '@angular/forms';
@@ -102,7 +137,9 @@ getFormData(data: NgForm) {
     console.warn(data);
     this.userData = data;
 }
+```
 
+```
 19) Material UI: ref site - https://material.angular.io/
 => ng add @angular/material
 
@@ -110,7 +147,9 @@ add modules as required.
 Example: Slider Module
 -> import { MatSliderModule } from '@angular/material/slider';
 <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+```
 
+```
 20) Bootstrap: ref site - https://ng-bootstrap.github.io
 => ng add @ng-bootstrap/ng-bootstrap
 
@@ -122,14 +161,18 @@ Example: Alert
     <strong>Warning!</strong> Better check yourself, you're not looking too good.
   </ngb-alert>
 </p>
+```
 
+```
 21) Pass Data From Parent to Child
 => Define variable in parent ts file.
 => Create child component
 => User this in parent: <app-user-details [item]="userDetails"></app-user-details>
 => Important : Add Input Decorator in ts file -> import { Component, OnInit, Input } from '@angular/core';
 => and define with appropriate data type with value @Input() item = [{name:'',email:''}];
+```
 
+```
 22) Pass Data From Child to Parent
 => Define function in parent i.e. updateParentData()
 => Create Child Component
@@ -142,13 +185,17 @@ Example: Alert
 <br /><br />
 <button (click)="updateParentDataEvent.emit(box.value)">Update Parent Data</button>
 => updateParentDataEvent.emit(): .emit is must when you want to pass data to Parent from child
+```
 
+```
 23) Two Bining:
 => Define variable in ts file : two_way_data:any = "";
 => To use two way binding, must have to import NgForm
 <input type="text" [(ngModel)]="two_way_data" />
 <h4>{{two_way_data}}</h4>
+```
 
+```
 24) Basic type of TypeScript
 => number, string, boolean, any, define two types
 => Example:
@@ -165,7 +212,9 @@ getData(item:number | boolean){
 -> item:string[] = ['Hello',"hi"];
 => Deifne Object: 
 ->data:{name:string,phone:number} = {name:'',phone:''};
+```
 
+```
 25) Basic of Pipes
 => Pipe used in HTML file only
 => 
@@ -179,7 +228,9 @@ getData(item:number | boolean){
 <h4>Normal Date : {{today_pipe}}</h4>
 <h4>'date' : {{today_pipe | date}}</h4>
 <h4>'date:fullDate' : {{today_pipe | date:'fullDate'}}</h4>
+```
 
+```
 26) Advance Pipes
 =>
 <h4>Normal String : {{data_pipe_adv}}</h4>
@@ -188,8 +239,9 @@ getData(item:number | boolean){
 <h4>'json' : {{data_pipe_json | json}}</h4>
 <h4>'json | uppercase' : {{data_pipe_json | json | uppercase}}</h4>
 <h4>'number' : {{2000.3000 | number : '2.2-3'}}</h4> = 2,000.30
+```
 
-
+```
 27) Custom Pipes
 => Commad : ng generate pipe pipes/usdInr - SHould be in some folder
 => in custom pipe class in transform function, put your calculations, by default it return NULL
@@ -198,13 +250,17 @@ getData(item:number | boolean){
     console.warn(args);
     return value * args[0];
   } 
+```
 
+```
 28) Template Driven Form:
 => import form module and register it
 	=> import { FormsModule } from '@angular/forms';  in module file
 => import data type
 	=> import { NgForm } from '@angular/forms'; in ts file
+```
 
+```
 29) Template Driven Form Validation:
 =>
 <form #loginForm2="ngForm" (ngSubmit)="userLogin2(loginForm2.value);">
@@ -218,7 +274,9 @@ getData(item:number | boolean){
   <br />
   <button [disabled]="loginForm2.invalid">Login</button>
 </form>
+```
 
+```
 30) Reactive Form
 => First import reactive module in module.ts
 import { ReactiveFormsModule } from '@angular/forms';
@@ -245,7 +303,9 @@ import { FormGroup, FormControl } from '@angular/forms';
   <button>Login</button>
 </form>
 
+```
 
+```
 31) Reactive Form Validation
 => First import reactive module in module.ts
 import { ReactiveFormsModule } from '@angular/forms';
@@ -280,7 +340,9 @@ get lgr_email2() {
   <button [disabled]="loginFormReactive2.invalid">Login</button>
 </form>
 
+```
 
+```
 32) Custom Directive
 => ng g directive directive/redEl
 => in directive.ts file import : import {ElementRef } from '@angular/core';
@@ -289,7 +351,9 @@ constructor(el: ElementRef) {
     el.nativeElement.style.color = "red";
   }
 => <h4 appRedEl>Hello World!</h4>
+```
 
+```
 33) Basic Routing
 => Make new App --> Routing should be Y when installation
 => use routerLink instead of href
@@ -312,7 +376,9 @@ const routes: Routes = [
     component: NoPageComponent -> this should be imported 
   }
 ];
+```
 
+```
 34) Dynamic & Child Routing
 => put <router-outlet> where child routing link added
 => child URL in href should be routerLink='company' which will look like in address bar = /about/company
@@ -344,7 +410,9 @@ const routes: Routes = [
     component: NoPageComponent
   }
 ];
+```
 
+```
 35) Basic Services
 => command : ng g service services/userdataservice
 => To user this:
@@ -358,7 +426,9 @@ constructor(private userservicevariable:UserdataserviceService) {
     this.user_service_data = userservicevariable.userdata();
 }
 => now you can use service data in this file with user_service_data
+```
 
+```
 36) Get Data from API using Service
 => Make service
 => In service.ts file import HttpClient
@@ -380,7 +450,9 @@ constructor(private userdetailservice:UserdetailserviceService) {
       this.user_detail_service = data;
     });
 }
+```
 
+```
 37) Post Data using service
 => Make service
 => In service.ts file import HttpClient
@@ -394,6 +466,7 @@ saveUserDetails(data:any){
 => Make sure to import HttpClientModule in module.ts file
 => Make form and when form submit => (ngSubmit)="regUser(regForm.value)"
 => In constructor of app.compoment.ts:
+
 user_detail_service:any;
 constructor(private userdetailservice:UserdetailserviceService) {
    
@@ -404,3 +477,4 @@ regUser(data:any){
         console.warn(result);
     });
   }
+```
